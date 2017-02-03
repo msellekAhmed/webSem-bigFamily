@@ -1,0 +1,19 @@
+<nav  class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">My Big Family</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li *ngIf="!connected"><a href="/create">Create</a></li>
+                <li *ngIf="!connected"><a href="/getFamily">My Family</a></li>
+                <li *ngIf="connected"><a href="/addMember">Add Member</a></li>
+				<li *ngIf="!connected"><a href="/anchestry">My Anchestry</a></li>
+                <li *ngIf="connected"><a href="/myFamily">My Family</a></li>
+                <li *ngIf="connected"><a href="/search">Search</a></li>
+                <li><a href="/about">About</a></li>
+                <li *ngIf="connected"><a href="#" (click)="logout()">Logout</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

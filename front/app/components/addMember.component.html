@@ -1,0 +1,87 @@
+<h1>Add Member</h1>
+<form (ngSubmit)="onSubmit($event)" #form="ngForm">
+
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName"
+               required
+               [(ngModel)]="member.firstName" name="firstName"
+               #firstName="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName"
+               required
+               [(ngModel)]="member.lastName" name="lastName"
+               #lastName="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender"
+                [(ngModel)]="member.gender" name="gender"
+                #gender="ngModel" >
+            <option *ngFor="let g of genderValues" [value]="g">{{g}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="birthDate">Birthdate</label>
+        <input class="form-control" id="birthDate"
+               [(ngModel)]="member.birthDate" name="birthDate"
+               #birthDate="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="city">Live in</label>
+        <input class="form-control" id="city"
+               [(ngModel)]="member.city" name="city"
+               #city="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="profession">Profession</label>
+        <input class="form-control" id="profession"
+               [(ngModel)]="member.profession" name="profession"
+               #profession="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="phone">Phone number</label>
+        <input class="form-control" id="phone"
+               [(ngModel)]="member.phone" name="phone"
+               #phone="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" id="email"
+               [(ngModel)]="member.email" name="email"
+               #email="ngModel" >
+    </div>
+
+    <div class="form-group">
+        <label for="relation">Relation</label>
+        <select class="form-control" id="relation"
+                required
+                [(ngModel)]="member.relation" name="relation"
+                #relation="ngModel">
+            <option *ngFor="let relation of relations" [value]="relation">{{relation}}</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+        <label for="relative">With</label>
+        <select class="form-control" id="relative"
+                required
+                [(ngModel)]="member.relative" name="relative"
+                #relative="ngModel">
+            <option *ngFor="let member of members" [value]="member">{{member}}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-default" [disabled]="!form.form.valid">Submit</button>
+    <button type="reset" class="btn btn-default">Reset</button>
+    <span *ngIf="success"> Member successfuly added !</span>
+</form>
